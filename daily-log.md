@@ -16,6 +16,14 @@
 
 <!-- 从下面开始写，最新的一天放最上面 -->
 
+### 2026-10-25
+- 学了：Python 语法补齐 13 道练习全部写完（2 对 / 2 近似 / 6 待修 / 3 待验收）；确立「先学 → 后练 → 默写」规则，新增 9 节教材（`agent-lab/basics/知识点.md`）；明确 RAG 必学、NLP 只学 5 个概念
+- 卡住：`apply` 少了遍历、装饰器丢了 `return result`、`field` 没导入、TypedDict 键不匹配、IDE 自动导入垃圾
+- 解决：全部定位到具体行；决定先走完线 B 再统一修；安全自查确认 API Key 从未进过 GitHub（4 项检查全过）
+- 其他：GitHub 用户名 `2471429249-cpu` → `bianjiaojiao`，remote 已更新并验证通过
+- 产出：新增 `notes/langchain/` 独立专区（进度/踩坑/资源评估）+ 当日日记；评估教程 ai-agents-from-zero（定位：参考书，非主线）
+- 明日计划：线 B L1~L7；修线 A 的 6 处 bug；重做 05b 填空练习
+
 ### 2026-10-23
 - 学了：代码路线全部跑通（00 自检 / 01 调用模型 / 02 LCEL 链 / 03 工具 Agent / 04 结构化输出）；LangGraph 四概念（State/Node/Edge/条件边）；DeepSeek 是**部分** OpenAI 兼容（支持 function calling，不支持 json_schema）
 - 卡住：`04_structured.py` 报 `This response_format type is unavailable now`（DeepSeek 不支持 json_schema）；`05_langgraph_agent.py` 尚未跑通
