@@ -8,17 +8,27 @@
 
 ## 一、材料在哪
 
+### 已归档进笔记库（本目录）
+
+| 文档 | 内容 |
+| --- | --- |
+| [01-关键词表](01-关键词表.md) | 两张全景图 + 40 个词的人话解释 + 读代码三遍法 |
+| [02-逐行拆解-07](02-逐行拆解-07.md) | 6 行 import 逐个拆（类/函数/常量）+ 5 个代码模板 + 逐行讲解 |
+| [03-知识点补充](03-知识点补充.md) | A1~B5 共 9 节先学教材 |
+| [04-学习路径](04-学习路径.md) | 两条线的时间表与验收标准 |
+
+### 留在工作区（可运行）
+
 | 内容 | 位置 |
 | --- | --- |
-| 先学教材（9 节） | [`agent-lab/basics/知识点.md`](../../../agent-lab/basics/知识点.md) |
-| Python 语法练习（13 题） | [`agent-lab/basics/题目.md`](../../../agent-lab/basics/题目.md) |
-| Python 参考答案 | [`agent-lab/basics/参考答案.py`](../../../agent-lab/basics/参考答案.py) |
-| LangChain 练习（7 题） | [`agent-lab/basics/题目-LangChain.md`](../../../agent-lab/basics/题目-LangChain.md) |
-| LangChain 参考答案 | [`agent-lab/basics/参考答案-LangChain.py`](../../../agent-lab/basics/参考答案-LangChain.py) |
-| 学习路径与时间表 | [`agent-lab/basics/学习路径.md`](../../../agent-lab/basics/学习路径.md) |
-| 实践脚本（01~06） | [`agent-lab/`](../../../agent-lab/) |
+| Python 语法练习（13 题） | `agent-lab/basics/题目.md` |
+| Python 参考答案 | `agent-lab/basics/参考答案.py` |
+| LangChain 练习（7 题） | `agent-lab/basics/题目-LangChain.md` |
+| LangChain 参考答案 | `agent-lab/basics/参考答案-LangChain.py` |
+| 你的作答（`01.py`~`07.py` 等） | `agent-lab/basics/` |
+| 实践脚本（01~06） | `agent-lab/` |
 
-> 本专区只做**索引、进度、踩坑记录、资源评估**；题目和答案不复制，避免两份不同步。
+> **分工**：**笔记库 = 知识归档（会进 git / GitHub / 电子书）；`agent-lab` = 工作区（跑代码、写练习）。
 
 ---
 

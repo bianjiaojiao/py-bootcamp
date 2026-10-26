@@ -70,7 +70,11 @@ notes/
 │   ├── 2026-10-17-后续学习与并行计划.md
 │   └── 2026-10-23-LangChain-LangGraph掌握路线.md   ← ⭐ Agent 专项长篇规划
 ├── langchain/           ← ★ LangChain / LangGraph 独立专区（与 Python 专题分开）
-│   └── README.md        ← 进度 / 踩坑 / 资源评估 / 材料索引
+│   ├── README.md        ← 进度 / 踩坑 / 资源评估 / 材料索引
+│   ├── 01-关键词表.md
+│   ├── 02-逐行拆解-07.md
+│   ├── 03-知识点补充.md
+│   └── 04-学习路径.md
 ├── source/              ← 原始笔记素材（截图转写等）
 │   ├── 2026-10-17/A.md ~ D.md
 │   ├── 2026-10-18/A.md
