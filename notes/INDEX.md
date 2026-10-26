@@ -2,7 +2,7 @@
 
 # 📑 知识点总索引
 
-> 共 **26** 个主题，**6** 个分类。按知识点找笔记从这里进；按日期找去 [TIMELINE.md](TIMELINE.md)；原始目录见 [topics/](topics/)。
+> 共 **27** 个主题，**6** 个分类。按知识点找笔记从这里进；按日期找去 [TIMELINE.md](TIMELINE.md)；原始目录见 [topics/](topics/)。
 
 ## 基础结构（5）
 
@@ -35,7 +35,7 @@
 | 排序 | `sorted`、`sort`、`key`、`lambda`、`reverse`、`排序`、`多级排序` | [06-排序](topics/06-排序.md) | 2026-10-17 |
 | 去重与词频统计 | `去重`、`保序`、`dict.fromkeys`、`Counter`、`词频`、`split`、`清洗`、`Top3` | [07-去重与词频统计](topics/07-去重与词频统计.md) | 2026-10-17 |
 
-## 进阶（10）
+## 进阶（11）
 
 | 主题 | 关键词 | 笔记 | 记录日期 |
 | --- | --- | --- | --- |
@@ -49,6 +49,7 @@
 | 闭包 | `闭包`、`closure`、`嵌套函数`、`自由变量`、`nonlocal`、`装饰器`、`带记忆的函数` | [18-闭包](topics/18-闭包.md) | 2026-10-20 |
 | 推导式 | `推导式`、`列表推导式`、`字典推导式`、`集合推导式`、`comprehension`、`if 过滤`、`表达式` | [19-推导式](topics/19-推导式.md) | 2026-10-21 |
 | dataclass | `dataclass`、`类`、`字段声明`、`frozen`、`field`、`init=False`、`__post_init__`、`校验`、`不可变` | [23-dataclass](topics/23-dataclass.md) | 2026-10-22 |
+| Annotated（类型标签） | `Annotated`、`typing`、`类型元数据`、`get_type_hints`、`reducer`、`add_messages` | [27-Annotated类型标签](topics/27-Annotated类型标签.md) | 2026-10-26 |
 
 ## 工程（5）
 

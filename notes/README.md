@@ -54,7 +54,8 @@ notes/
 │   ├── 23-dataclass.md
 │   ├── 24-Agent开发环境与DeepSeek.md
 │   ├── 25-Langflow基础操作.md
-│   └── 26-LangGraph基础.md
+│   ├── 26-LangGraph基础.md
+│   └── 27-Annotated类型标签.md
 ├── daily/               ← 按日期组织的每日学习记录
 │   ├── 2026-10-17.md
 │   ├── 2026-10-18.md
@@ -63,7 +64,8 @@ notes/
 │   ├── 2026-10-21.md
 │   ├── 2026-10-22.md
 │   ├── 2026-10-23.md
-│   └── 2026-10-25.md
+│   ├── 2026-10-25.md
+│   └── 2026-10-26.md
 ├── plans/               ← 学习计划
 │   ├── 2026-10-17-后续学习与并行计划.md
 │   └── 2026-10-23-LangChain-LangGraph掌握路线.md   ← ⭐ Agent 专项长篇规划
