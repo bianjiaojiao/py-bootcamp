@@ -65,7 +65,8 @@ notes/
 │   ├── 2026-10-22.md
 │   ├── 2026-10-23.md
 │   ├── 2026-10-25.md
-│   └── 2026-10-26.md
+│   ├── 2026-10-26.md
+│   └── 2026-10-27.md
 ├── plans/               ← 学习计划
 │   ├── 2026-10-17-后续学习与并行计划.md
 │   └── 2026-10-23-LangChain-LangGraph掌握路线.md   ← ⭐ Agent 专项长篇规划
@@ -98,6 +99,31 @@ notes/
 | **某个知识点**（如"排序"、"字典 get"） | [INDEX.md](INDEX.md) 索引名 → 点进主题文件；或直接 Ctrl+F 搜关键词 |
 | **某天学了什么** | [TIMELINE.md](TIMELINE.md) 或 `daily/` 目录 |
 | **按分类浏览** | `topics/` 目录（编号即学习顺序） |
+
+## 二·补、每次学习后的固定流程（分类规则）
+
+| 内容类型 | 写到哪 | 说明 |
+| --- | --- | --- |
+| 当天学了什么 | `daily/YYYY-MM-DD.md` | 每天一篇：完成事项 / 知识点 / 易错点 / 明日计划 |
+| Python 语言知识点 | `topics/NN-名字.md` | 编号接续，如 `27-Annotated类型标签.md` |
+| LangChain / LangGraph 知识 | `langchain/` | **不进 topics 编号**，框架能力与语言能力分开 |
+| 学习计划 / 总览 / 路线 | `plans/` | 长篇规划、进度总览 |
+| 截图原始素材 | `source/YYYY-MM-DD/` | 截图转写（按阅读顺序） |
+
+**固定流程（每次学习后都要做）**
+
+```bash
+# 1. 写当天日记
+# 2. 新知识点进对应分类（topics / langchain / plans）
+# 3. 更新本文件的目录树
+# 4. 重建索引与电子书
+python notes/tools/build_index.py
+python notes/tools/build_book.py
+# 5. 提交推送
+git add -A && git commit -m "笔记：YYYY-MM-DD ..." && git push
+```
+
+> 索引会自动产出 **INDEX.md（按分类统计）** 与 **TIMELINE.md（按日期统计）**，不需要手工维护统计。
 
 ## 三、如何添加新笔记（重要）
 
