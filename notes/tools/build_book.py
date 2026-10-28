@@ -224,6 +224,10 @@ def collect_pages() -> tuple[list[dict], list[dict]]:
     if (NOTES / "TIMELINE.md").exists():
         add(NOTES / "TIMELINE.md", "前言", "timeline")
 
+    # 错题本（放在最前面，方便随时复习）
+    if (NOTES / "错题本.md").exists():
+        add(NOTES / "错题本.md", "错题本", "errorbook")
+
     # 按分类装主题
     topics = []
     for path in sorted(TOPICS_DIR.glob("*.md")):
@@ -245,6 +249,19 @@ def collect_pages() -> tuple[list[dict], list[dict]]:
         chapter_title = f"第 {chapter_no} 章 {cat}"
         for t in sorted([x for x in topics if x["category"] == cat], key=lambda x: x["num"]):
             add(t["path"], chapter_title, f"topic-{t['num']:02d}")
+
+    # LangChain / LangGraph 专区（框架能力，与 Python 语言知识分开）
+    lc_dir = NOTES / "langchain"
+    if lc_dir.exists():
+        lc_files = sorted(p for p in lc_dir.glob("*.md") if p.name != "README.md")
+        readme = lc_dir / "README.md"
+        if readme.exists():
+            lc_files = [readme] + lc_files
+        if lc_files:
+            chapter_no += 1
+            chapter_title = f"第 {chapter_no} 章 LangChain / LangGraph"
+            for i, path in enumerate(lc_files, 1):
+                add(path, chapter_title, f"lc-{i:02d}")
 
     # 每日记录
     daily_files = sorted(DAILY_DIR.glob("*.md"), reverse=True) if DAILY_DIR.exists() else []
