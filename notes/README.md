@@ -56,7 +56,8 @@ notes/
 │   ├── 24-Agent开发环境与DeepSeek.md
 │   ├── 25-Langflow基础操作.md
 │   ├── 26-LangGraph基础.md
-│   └── 27-Annotated类型标签.md
+│   ├── 27-Annotated类型标签.md
+│   └── 28-getattr与属性操作.md
 ├── daily/               ← 按日期组织的每日学习记录
 │   ├── 2026-10-17.md
 │   ├── 2026-10-18.md
@@ -87,7 +88,8 @@ notes/
 │   ├── 2026-10-19/A.md
 │   ├── 2026-10-20/A.md
 │   ├── 2026-10-21/A.md
-│   └── 2026-10-22/A.md
+│   ├── 2026-10-22/A.md
+│   └── 2026-10-29/A.md
 ├── tools/
 │   ├── build_index.py   ← 生成 INDEX.md / TIMELINE.md
 │   └── build_book.py    ← 生成网页书 + Word 书
