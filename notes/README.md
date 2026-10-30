@@ -90,7 +90,8 @@ notes/
 │   ├── 2026-10-20/A.md
 │   ├── 2026-10-21/A.md
 │   ├── 2026-10-22/A.md
-│   └── 2026-10-29/A.md
+│   ├── 2026-10-29/A.md
+│   └── 2026-10-30/A.md
 ├── tools/
 │   ├── build_index.py   ← 生成 INDEX.md / TIMELINE.md
 │   └── build_book.py    ← 生成网页书 + Word 书
