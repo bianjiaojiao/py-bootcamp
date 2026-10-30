@@ -3,7 +3,7 @@ words_list = word.lower().replace(",", "").replace(".", "").split()
 d1 = list(dict.fromkeys(words_list))
 print(d1)
 d2 ={}
-'''''
+
 for i in words_list:
     if i not in d2:
         d2[i] = 1
@@ -14,3 +14,4 @@ print(sorted(d2.items(),key=lambda x:x[1],reverse=True)[:3])
 for w in words_list:
     d2[w] = d2.get(w, 0) + 1
 print(d2)
+'''''
