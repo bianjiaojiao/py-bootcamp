@@ -2,7 +2,7 @@
 
 # 📑 知识点总索引
 
-> 共 **28** 个主题，**6** 个分类。按知识点找笔记从这里进；按日期找去 [TIMELINE.md](TIMELINE.md)；原始目录见 [topics/](topics/)。
+> 共 **29** 个主题，**7** 个分类。按知识点找笔记从这里进；按日期找去 [TIMELINE.md](TIMELINE.md)；原始目录见 [topics/](topics/)。
 
 ## 基础结构（5）
 
@@ -61,3 +61,9 @@
 | Agent 开发环境与 DeepSeek 接入 | `Agent`、`LangChain`、`LangGraph`、`DeepSeek`、`langchain-openai`、`base_url`、`OpenAI 兼容`、`venv`、`环境` | [24-Agent开发环境与DeepSeek](topics/24-Agent开发环境与DeepSeek.md) | 2026-10-22 |
 | Langflow 基础操作 | `Langflow`、`可视化`、`组件`、`连线`、`Playground`、`代理程序`、`提示模板`、`报错排查` | [25-Langflow基础操作](topics/25-Langflow基础操作.md) | 2026-10-22 |
 | LangGraph 基础 | `LangGraph`、`State`、`Node`、`Edge`、`条件边`、`循环`、`StateGraph`、`checkpointer`、`Agent 循环` | [26-LangGraph基础](topics/26-LangGraph基础.md) | 2026-10-23 |
+
+## LangChain（1）
+
+| 主题 | 关键词 | 笔记 | 记录日期 |
+| --- | --- | --- | --- |
+| LangChain 基础关键词（L1~L10） | `LangChain`、`invoke`、`SystemMessage`、`HumanMessage`、`ChatPromptTemplate`、`StrOutputParser`、`tool`、`bind_tools`、`tool_calls`、`ToolMessage`、`tool_call_id`、`StateGraph`、`State`、`add_node`、`add_edge`、`compile`、`add_conditional_edges`、`ToolNode`、`add_messages` | [29-LangChain基础关键词](topics/29-LangChain基础关键词.md) | 2026-10-31 |

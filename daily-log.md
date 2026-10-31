@@ -79,3 +79,15 @@
 - 卡住：（待填写）
 - 解决：（待填写）
 - 明日计划：把 10 个练习各手抄一遍，开始学 P1 函数与推导式
+
+### 2026-10-30
+- 学了：阶段测验 14~18 全部完成（Enum / 类属性 / 元类 / 线程 / 闭包），17 题补上 Lock 与 Condition，18 题补上闭包计数器
+- 卡住：线程和闭包知识点全忘，Lock/Condition/nonlocal 全靠重讲才写出来
+- 解决：17.2.py 拿到 40000、17.3.py 生产者消费者顺序正确、18.py 输出 1 2 1
+- 明日计划：清尾（18.1 装饰器、11 调用、12 enumerate）+ 回 LangChain 主线
+
+### 2026-10-31
+- 学了：LangChain 从零重学 L1~L10（调用模型 / 定规矩 / 提示词模板 / 管道 / 工具申请 / 工具执行闭环 / 最小图 / 图里塞模型 / 条件边 / ToolNode）
+- 卡住：之前练习严重超纲（splitlines、ToolMessage、rag.ask 返回结构都是没教就出题）；tool_calls 的列表套字典结构、@tool 后函数变对象
+- 解决：定下每个练习只用教过的词铁律；用 pathlib 手读 .env 替掉 os.getenv；	ool_calls[0][args][a] 四层取值讲透；L6 手写四步与 L10 图版输出对比
+- 明日计划：L11 记忆（checkpointer/thread_id）→ L12 人工确认（interrupt）→ L13 流式
