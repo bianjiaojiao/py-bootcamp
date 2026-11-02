@@ -33,7 +33,7 @@ class State(TypedDict):
     question:str
     answer:str
 def ask_llm(state:State):
-    return {"answer": get_llm().invoke(state["question"]).content} 
+    return {"answer": get_llm().invoke(state["question"]).content}
 def decorate(state:State):
     return {"answer": f"【答】{state['answer']}【完】"}
 
