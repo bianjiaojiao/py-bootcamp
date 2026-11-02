@@ -302,8 +302,127 @@ HumanMessage → AIMessage(申请单) → 你的代码执行 → ToolMessage →
 
 ---
 
+## L11 · 记忆（让它记住上一轮）
+
+| 词 | 用法 | 说明 |
+| --- | --- | --- |
+| `checkpointer` | `g.compile(checkpointer=MemorySaver())` | **存档器**：每跑一步把对话存起来 |
+| `MemorySaver()` | 存**内存**里的存档器 | 程序一退出就没了 |
+| `thread_id` | `{"configurable": {"thread_id": "user-1"}}` | **会话编号**：同一个 id 共享记忆 |
+
+```python
+class State(TypedDict):
+    messages: Annotated[list, add_messages]     # ① 必须 add_messages
+
+app = g.compile(checkpointer=MemorySaver())     # ② 必须传 checkpointer
+
+config = {"configurable": {"thread_id": "user-1"}}    # ③ 必须带 thread_id
+app.invoke({"messages": [HumanMessage("我叫小明")]}, config)
+r = app.invoke({"messages": [HumanMessage("我叫什么？")]}, config)   # 记得
+```
+
+**记忆三件套，缺一不可**：
+
+| # | 写在哪 | 作用 |
+| --- | --- | --- |
+| ① | `Annotated[list, add_messages]` | 消息**追加**（不覆盖） |
+| ② | `compile(checkpointer=...)` | 每步**存档** |
+| ③ | `invoke(..., {"configurable": {"thread_id": ...}})` | 存到**哪个编号**下 |
+
+**怎么验证记忆真的生效**（实战技巧）：
+
+```python
+r["messages"][-1].response_metadata["token_usage"]["prompt_tokens"]
+```
+
+**第二轮的 `prompt_tokens` 明显大于第一轮 = 历史真的被送进去了。**
+
+> 实测：第一轮 9 tokens → 第二轮 58 tokens → 换 thread_id 又回到 8 tokens。
+
+---
+
+## L12 · 人工确认（危险操作前暂停）
+
+| 词 | 用法 | 说明 |
+| --- | --- | --- |
+| `interrupt("问题")` | **写在节点里** | 暂停整张图，把问题抛给人 |
+| `Command(resume="回答")` | `app.invoke(Command(resume="yes"), config)` | 带着人的回答**恢复**执行 |
+| `__interrupt__` | `r["__interrupt__"]` | 暂停时结果里多出的键，装着问题 |
+
+```python
+def risky(state):
+    answer = interrupt("确认删除 3 个文件？(yes/no)")
+    if answer == "yes":
+        return {"approved": True, "messages": [("ai", "✅ 已删除")]}
+    return {"approved": False, "messages": [("ai", "❌ 已取消")]}
+```
+
+**三步流程**：
+
+```
+① 第一次 invoke  → 跑到 interrupt 暂停，返回 __interrupt__
+② 人看到问题     → 决定 yes / no
+③ 第二次 invoke  → Command(resume="yes")，从暂停处继续
+```
+
+**关键点**：
+
+| 要点 | 说明 |
+| --- | --- |
+| **必须 `checkpointer`** | 暂停后要存住状态，否则恢复不了 |
+| **`interrupt()` 的返回值** | 就是人给的那个回答 |
+| **可以写在节点中间** | 前面的代码执行完才停，**危险操作要放在它后面** |
+| **一次暂停 = 两次 invoke** | 第一次暂停，第二次恢复 |
+
+**这就是"你只做 yes/no"的形态**——平时 Agent 自己跑，只有要动真东西（删文件、发消息、付钱）时才问你。
+
+---
+
+## L13 · 流式输出
+
+| 词 | 用法 | 说明 |
+| --- | --- | --- |
+| `.stream(...)` | `for chunk in llm.stream("问题"):` | 和 `invoke` 一样调用，但**逐片返回** |
+| `chunk` | `chunk.content` | 每一小片的文字 |
+
+```python
+for chunk in llm.stream("用 50 个字介绍 Python"):
+    print(chunk.content, end="", flush=True)
+```
+
+**两个容易漏的参数**：
+
+| 参数 | 漏了会怎样 |
+| --- | --- |
+| `end=""` | 每片占一行，很难看 |
+| `flush=True` | 攒在缓冲区，看不到"打字"效果 |
+
+**`llm.stream` 和 `chain.stream` 的差别**：
+
+| 写法 | 每片是什么 |
+| --- | --- |
+| `llm.stream("...")` | **消息对象** → 要用 `chunk.content` |
+| `chain.stream({...})` | **字符串**（末尾有 `StrOutputParser`）→ 直接 `print(chunk)` |
+
+**真正的价值不是总耗时**，而是**第一个字出现的时间**：`invoke` 要等 2 秒，`stream` 0.2 秒就开始冒字——用户感知完全不同（ChatGPT 那种界面就是这么做的）。
+
+---
+
+## 附：考核中暴露的 3 个共性弱点
+
+> 2026-11-01 完成 10 题考核（4 题满分 / 5 题小修 / 1 题重做）。
+
+| 弱点 | 具体表现 | 怎么改 |
+| --- | --- | --- |
+| **写完不跑，或只跑一半** | 只测 `if` 的一个分支；`TOOL = []` 一跑就发现 | 每写完一题**先跑一遍**再看代码 |
+| **空实现忘了填** | 工具函数写了 `pass`；工具列表是空的 | 检查"我声明的每个东西都真的用上了吗" |
+| **方法名凭印象写** | `text.reserve()`（字符串没有这个方法） | 字符串反转用 `text[::-1]`（专题 02 学过） |
+
+---
+
 ## 🔗 相关
 
-- 课表：[LangChain 从零课表](../../plans/2026-10-31-LangChain从零课表.md)
-- 当日记录：[2026-10-31](../../daily/2026-10-31.md)
-- 代码：`agent-lab/L01.py` ~ `L10.py`
+- 课表：[LangChain 从零课表](../plans/2026-10-31-LangChain从零课表.md)
+- 当日记录：[2026-10-31](../daily/2026-10-31.md)、[2026-11-02](../daily/2026-11-02.md)
+- 考核题目：[LangChain考核-10题](../../LangChain考核-10题.md)
+- 代码：`agent-lab/L01.py` ~ `L13.py`，考核答案 `exercises/作业111/langchain-kaohe/`

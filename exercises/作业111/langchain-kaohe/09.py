@@ -36,3 +36,24 @@ from config import get_llm
 """
 
 # ↓↓↓ 在这里写 ↓↓↓
+class State(TypedDict):
+    messages : Annotated[list , add_messages]
+    sent:bool
+def choice(state:State):
+    a = interrupt("确认发送这封邮件吗？(yes/no)")
+    if a == "yes":
+        return {"sent": True,  "messages": [("ai", "已发送")]}
+    else:
+        return {"sent": False, "messages": [("ai", "已取消")]}
+g = StateGraph(State)
+g.add_node("choice",choice)
+g.add_edge(START,"choice")
+g.add_edge("choice",END)
+app = g.compile(checkpointer = MemorySaver())
+command1 = {"configurable":{"thread_id":"1"}}
+command2 = {"configurable":{"thread_id":"2"}}
+
+r1 = app.invoke({"messages": "发送邮件"}, command1)  # 暂停
+r2 = app.invoke(Command(resume="yes"), command1)  # 恢复
+print(r1)
+print(r2)

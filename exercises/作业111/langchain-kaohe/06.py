@@ -29,3 +29,19 @@ from config import get_llm
 """
 
 # ↓↓↓ 在这里写 ↓↓↓
+class State(TypedDict):
+    question:str
+    answer:str
+def ask_llm(state:State):
+    return {"answer": get_llm().invoke(state["question"]).content} 
+def decorate(state:State):
+    return {"answer": f"【答】{state['answer']}【完】"}
+
+g = StateGraph(State)
+g.add_node("ask",ask_llm)
+g.add_node("de",decorate)
+g.add_edge(START,"ask")
+g.add_edge("ask","de")
+g.add_edge("de",END)
+app = g.compile()
+print(app.invoke({"question": "什么是列表"})["answer"])

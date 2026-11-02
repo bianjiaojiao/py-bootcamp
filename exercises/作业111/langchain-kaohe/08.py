@@ -34,3 +34,22 @@ from config import get_llm
 """
 
 # ↓↓↓ 在这里写 ↓↓↓
+class State(TypedDict):
+    messages:Annotated[list,add_messages]
+
+def chat(state:State):
+    return {"messages":get_llm().invoke(state["messages"])}
+g = StateGraph(State)
+g.add_node("chat",chat)
+g.add_edge(START,"chat")
+g.add_edge("chat",END)
+app = g.compile(checkpointer = MemorySaver())
+command1 = {"configurable":{"thread_id":"1"}}
+command2 = {"configurable":{"thread_id":"2"}}
+c2 = {"configurable":{"thread_id":"2"}}
+r = app.invoke({"messages":[HumanMessage("你好,我叫边角")]},command1)
+r1 = app.invoke({"messages":[HumanMessage("hello,我叫什么")]},command1)
+print(r)
+print(r1)
+r2 = app.invoke({"messages":[HumanMessage("hello,我叫什么")]},command2)
+print(r2)

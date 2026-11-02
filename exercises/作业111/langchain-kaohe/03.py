@@ -33,3 +33,23 @@ from config import get_llm
 """
 
 # ↓↓↓ 在这里写 ↓↓↓
+
+@tool
+def add(a,b):
+    "计算两数之和"
+    return a+b
+@tool
+def reverse_text(text):
+    "反转字符串"
+    return text[::-1]
+@tool
+def count_word(text):
+    "数单词个数"
+    return len(text.split())
+
+TOOL = [add,reverse_text,count_word]
+llm = get_llm().bind_tools(TOOL)
+r=llm.invoke("帮我算 12 加 30")
+print(r)
+for c in r.tool_calls:
+        print(c["name"], c["args"])

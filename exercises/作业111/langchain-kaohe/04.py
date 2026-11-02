@@ -31,3 +31,16 @@ from config import get_llm
 """
 
 # ↓↓↓ 在这里写 ↓↓↓
+@tool
+def mul(a,b):
+    "两数相乘"
+    return a*b
+llm = get_llm().bind_tools([mul])
+question = "算 99 乘 99"
+r = llm.invoke(question)
+call = r.tool_calls[0]
+result = mul.invoke(call["args"])
+print(result)
+
+msgs = [question, r, ToolMessage(content=str(result), tool_call_id=call["id"])]
+print(msgs)

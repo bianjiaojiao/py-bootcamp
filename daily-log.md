@@ -91,3 +91,9 @@
 - 卡住：之前练习严重超纲（splitlines、ToolMessage、rag.ask 返回结构都是没教就出题）；tool_calls 的列表套字典结构、@tool 后函数变对象
 - 解决：定下每个练习只用教过的词铁律；用 pathlib 手读 .env 替掉 os.getenv；	ool_calls[0][args][a] 四层取值讲透；L6 手写四步与 L10 图版输出对比
 - 明日计划：L11 记忆（checkpointer/thread_id）→ L12 人工确认（interrupt）→ L13 流式
+
+### 2026-11-02
+- 学了：LangChain 考核 10 题（L1~L13 全部结业），首轮 4 满分/5 小修/1 重做，修复后 8 题通过
+- 卡住：Q3 定义三个工具但 TOOL = [] 没装上；Q6 漏 .content 把消息对象拼进字符串；	ext.reserve() 方法不存在
+- 解决：工具列表补全、.content 补上、字符串反转改用切片 	ext[::-1]
+- 明日计划：下一站 E 阶段 RAG —— course-rag 加评估集（10 题测命中率）

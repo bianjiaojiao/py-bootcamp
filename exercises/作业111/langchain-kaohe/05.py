@@ -34,3 +34,32 @@ from config import get_llm
 """
 
 # ↓↓↓ 在这里写 ↓↓↓
+class State(TypedDict):
+    messages : Annotated[list,add_messages]
+@tool
+def add(a,b):
+    "两数相加"
+    return a+b
+@tool
+def mul(a,b):
+    "两数相乘"
+    return a*b
+
+llm = get_llm().bind_tools([add,mul])
+def should_continue(state):
+    last_msg = state["messages"][-1]
+    if getattr(last_msg, "tool_calls", None):
+        return "tools"
+    return END
+
+def agent(state):
+    r = llm.invoke(state["messages"])
+    return {"messages": [r]}
+g = StateGraph(State)
+g.add_node("agent",agent)
+g.add_node("tools",ToolNode([add, mul]))
+g.add_edge(START,"agent")
+g.add_conditional_edges("agent",should_continue, {"tools": "tools", END: END})
+g.add_edge("tools", "agent")
+app = g.compile()
+print(app.invoke({"messages": [HumanMessage(content="先算 12 加 30，再算 7 乘 8")]}))

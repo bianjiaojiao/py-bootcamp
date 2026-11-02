@@ -28,3 +28,42 @@ from config import get_llm
 """
 
 # ↓↓↓ 在这里写 ↓↓↓
+class State(TypeError):
+    role:str
+    question:str
+
+def ask(role,question):
+    messages = [
+        SystemMessage(content=f"你是一个{role}"),
+        HumanMessage(content=question)
+    ]
+    return get_llm().invoke(messages).content
+print(ask("只说三个字的机器人", "今天天气怎么样"))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
