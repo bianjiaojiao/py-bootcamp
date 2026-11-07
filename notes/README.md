@@ -58,7 +58,10 @@ notes/
 │   ├── 26-LangGraph基础.md
 │   ├── 27-Annotated类型标签.md
 │   ├── 28-getattr与属性操作.md
-│   └── 29-LangChain基础关键词.md
+│   ├── 29-LangChain基础关键词.md
+│   ├── 30-json与序列化.md
+│   ├── 31-functools缓存与偏函数.md
+│   └── 32-asyncio异步编程.md
 ├── daily/               ← 按日期组织的每日学习记录
 │   ├── 2026-10-17.md
 │   ├── 2026-10-18.md

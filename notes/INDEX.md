@@ -2,7 +2,7 @@
 
 # 📑 知识点总索引
 
-> 共 **29** 个主题，**7** 个分类。按知识点找笔记从这里进；按日期找去 [TIMELINE.md](TIMELINE.md)；原始目录见 [topics/](topics/)。
+> 共 **32** 个主题，**7** 个分类。按知识点找笔记从这里进；按日期找去 [TIMELINE.md](TIMELINE.md)；原始目录见 [topics/](topics/)。
 
 ## 基础结构（5）
 
@@ -52,7 +52,7 @@
 | Annotated（类型标签） | `Annotated`、`typing`、`类型元数据`、`get_type_hints`、`reducer`、`add_messages` | [27-Annotated类型标签](topics/27-Annotated类型标签.md) | 2026-10-26 |
 | getattr 与属性操作 | `getattr`、`hasattr`、`setattr`、`属性`、`反射`、`tool_calls`、`安全取值` | [28-getattr与属性操作](topics/28-getattr与属性操作.md) | 2026-10-29 |
 
-## 工程（5）
+## 工程（8）
 
 | 主题 | 关键词 | 笔记 | 记录日期 |
 | --- | --- | --- | --- |
@@ -61,6 +61,9 @@
 | Agent 开发环境与 DeepSeek 接入 | `Agent`、`LangChain`、`LangGraph`、`DeepSeek`、`langchain-openai`、`base_url`、`OpenAI 兼容`、`venv`、`环境` | [24-Agent开发环境与DeepSeek](topics/24-Agent开发环境与DeepSeek.md) | 2026-10-22 |
 | Langflow 基础操作 | `Langflow`、`可视化`、`组件`、`连线`、`Playground`、`代理程序`、`提示模板`、`报错排查` | [25-Langflow基础操作](topics/25-Langflow基础操作.md) | 2026-10-22 |
 | LangGraph 基础 | `LangGraph`、`State`、`Node`、`Edge`、`条件边`、`循环`、`StateGraph`、`checkpointer`、`Agent 循环` | [26-LangGraph基础](topics/26-LangGraph基础.md) | 2026-10-23 |
+| json 与数据序列化 | `json`、`dumps`、`loads`、`序列化`、`API`、`中文乱码`、`ensure_ascii` | [30-json与序列化](topics/30-json与序列化.md) | 2026-11-07 |
+| functools（lru_cache 缓存 / partial 偏函数） | `functools`、`lru_cache`、`partial`、`缓存`、`装饰器`、`偏函数`、`提速` | [31-functools缓存与偏函数](topics/31-functools缓存与偏函数.md) | 2026-11-07 |
+| asyncio 异步编程 | `asyncio`、`async`、`await`、`协程`、`并发`、`gather`、`事件循环`、`阻塞` | [32-asyncio异步编程](topics/32-asyncio异步编程.md) | 2026-11-07 |
 
 ## LangChain（1）
 
