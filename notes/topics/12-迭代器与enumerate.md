@@ -146,3 +146,58 @@ for line in open("f.txt"):  # 文件（逐行）
 - 列表与元组 → [03-列表与元组](03-列表与元组.md)
 - 原始截图 → [source/2026-10-18/A.md](../source/2026-10-18/A.md)（图 image31、image32）
 - 今日手写要点：「迭代可以用来取补给（游戏），因为它不可逆，且调用一次后原本的 iter() 即使转化为列表也会少那一个」
+
+---
+
+## 补充：`zip` 并行遍历（2026-11-08）
+
+**一句话**：同时遍历两个（或多个）列表，一对一对取。
+
+```python
+names = ["小明", "小红", "小刚"]
+scores = [90, 85, 77]
+
+for name, score in zip(names, scores):
+    print(name, score)
+# 小明 90
+# 小红 85
+# 小刚 77
+```
+
+### 和 `enumerate` 的区别
+
+| 函数 | 给什么 | 什么时候用 |
+| --- | --- | --- |
+| `enumerate(列表)` | 下标 + 元素 | 需要"第几个" |
+| `zip(列表1, 列表2)` | 两个列表的对应元素 | 需要"配对" |
+
+### 三个常用变体
+
+```python
+# ① 转字典（最常用）
+d = dict(zip(names, scores))     # {"小明": 90, "小红": 85, ...}
+
+# ② 三个列表一起
+for a, b, c in zip(l1, l2, l3): ...
+
+# ③ 矩阵转置
+rows = [(1, 2), (3, 4)]
+cols = list(zip(*rows))          # [(1, 3), (2, 4)]
+```
+
+### 坑
+
+```python
+zip([1, 2, 3], ["a", "b"])       # 只配对 2 个，第三个丢弃（按短的截断）
+```
+
+**长度不等时静默截断，不报错**——想严格一致就自己先检查 `len`。
+
+### 在哪见过
+
+`course-rag/rag/store.py:82`：
+
+```python
+Chunk(text=str(t), source=str(s))
+for t, s in zip(data["texts"], data["sources"])
+```
