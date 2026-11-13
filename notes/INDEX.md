@@ -2,7 +2,7 @@
 
 # 📑 知识点总索引
 
-> 共 **35** 个主题，**7** 个分类。按知识点找笔记从这里进；按日期找去 [TIMELINE.md](TIMELINE.md)；原始目录见 [topics/](topics/)。
+> 共 **36** 个主题，**7** 个分类。按知识点找笔记从这里进；按日期找去 [TIMELINE.md](TIMELINE.md)；原始目录见 [topics/](topics/)。
 
 ## 基础结构（5）
 
@@ -53,7 +53,7 @@
 | getattr 与属性操作 | `getattr`、`hasattr`、`setattr`、`属性`、`反射`、`tool_calls`、`安全取值` | [28-getattr与属性操作](topics/28-getattr与属性操作.md) | 2026-10-29 |
 | OOP 进阶（property / classmethod / staticmethod / 继承 super） | `property`、`classmethod`、`staticmethod`、`继承`、`super`、`描述符`、`面向对象` | [33-OOP进阶](topics/33-OOP进阶.md) | 2026-11-08 |
 
-## 工程（10）
+## 工程（11）
 
 | 主题 | 关键词 | 笔记 | 记录日期 |
 | --- | --- | --- | --- |
@@ -67,6 +67,7 @@
 | asyncio 异步编程 | `asyncio`、`async`、`await`、`协程`、`并发`、`gather`、`事件循环`、`阻塞` | [32-asyncio异步编程](topics/32-asyncio异步编程.md) | 2026-11-07 |
 | collections 与 heapq（常用容器速查） | `defaultdict`、`deque`、`Counter`、`heapq`、`nlargest`、`容器`、`标准库` | [34-collections与heapq](topics/34-collections与heapq.md) | 2026-11-08 |
 | RAG 项目架构思路（以 course-rag 为例） | `RAG`、`架构`、`分层`、`数据契约`、`离线在线`、`扩展点`、`course-rag` | [35-RAG项目架构思路](topics/35-RAG项目架构思路.md) | 2026-11-09 |
+| Skill 机制（harness 怎么调用技能） | `skill`、`SKILL.md`、`frontmatter`、`description`、`上下文`、`harness`、`触发机制` | [36-Skill机制](topics/36-Skill机制.md) | 2026-11-13 |
 
 ## LangChain（1）
 
